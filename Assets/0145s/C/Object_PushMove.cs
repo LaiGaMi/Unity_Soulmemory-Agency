@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Object_PushMove : MonoBehaviour, CanPush
+{
+	private Rigidbody rb;
+	
+	void Awake()
+	{
+		rb = GetComponent<Rigidbody>();
+	}
+	
+	public void PushObject(Vector3 direction, float power)
+	{
+		rb.AddForce(
+			direction * power,
+			ForceMode.Impulse
+		);
+	}
+}
