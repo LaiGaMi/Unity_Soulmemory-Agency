@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Object_follow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+	public Transform target;
+    private Transform self;
+	
+    void Awake()
     {
-        
+        self = transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        self.position = target.position;
     }
 }

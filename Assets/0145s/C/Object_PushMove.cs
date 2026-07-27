@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Object_PushMove : MonoBehaviour, CanPush
 {
+	public float kg = 1f;
+	
 	private Rigidbody rb;
 	
 	void Awake()
@@ -13,8 +15,10 @@ public class Object_PushMove : MonoBehaviour, CanPush
 	
 	public void PushObject(Vector3 direction, float power)
 	{
+		float finalPower = power / kg;
+		
 		rb.AddForce(
-			direction * power,
+			direction * finalPower,
 			ForceMode.Impulse
 		);
 	}

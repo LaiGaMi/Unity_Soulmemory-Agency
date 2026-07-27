@@ -1,0 +1,36 @@
+{
+  "dialogues": [
+    {
+      "talkBox": "talk_test", "nameBox": "name_test",
+      "ch01": {"id": "saite_test", "focus": true},
+      "ch02": {"id": "no", "focus": false},
+      "ch03": {"id": "j_test", "focus": false},
+      "name": "賽特",
+      "talk": "你們好，今天天氣真好！"
+    },
+	{
+      "talkBox": "talk_test", "nameBox": "name_test",
+      "ch01": {"id": "saite_test", "focus": false},
+      "ch02": null,
+      "ch03": {"id": "justin_test", "focus": true},
+      "name": "捷思汀",
+      "talk": "菜鳥，過來。\n這裡有個難纏的櫃子需要整理。"
+    },
+	{
+      "talkBox": "talk_test", "nameBox": "name_test",
+      "ch01": {"id": "rein_test", "focus": true},
+      "ch02": null,
+      "ch03": {"id": "justin_test", "focus": false},
+      "name": "雷恩",
+      "talk": "那個～這個讓新人來做有點多吧，\n讓我來整理吧！"
+    },
+	{
+      "talkBox": "talk_test", "nameBox": "name_test",
+      "ch01": {"id": "rein_test", "focus": false},
+      "ch02": null,
+      "ch03": {"id": "Freya_test", "focus": true},
+      "name": "芙蕾雅",
+      "talk": "雷恩，別管他了！馬桶爆炸了！快來幫我啊啊啊！"
+    }
+  ]
+}

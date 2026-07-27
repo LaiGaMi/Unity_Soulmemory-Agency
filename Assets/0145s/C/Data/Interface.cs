@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public interface CanTouch
+{
+	void TouchObject();
+}
+
+public interface CanPush
+{
+	void PushObject(Vector3 direction, float power);
+}
+
+public interface StoryStop
+{
+	void StartStory();
+	void StopStory();
+}

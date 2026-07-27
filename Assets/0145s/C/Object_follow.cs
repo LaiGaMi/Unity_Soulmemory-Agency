@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Object_follow : MonoBehaviour
 {
+	public bool followRotation = false;
+	
 	public Transform target;
     private Transform self;
 	
@@ -15,5 +17,10 @@ public class Object_follow : MonoBehaviour
     void LateUpdate()
     {
         self.position = target.position;
+		
+		if (followRotation)
+        {
+            self.rotation = target.rotation;
+        }
     }
 }

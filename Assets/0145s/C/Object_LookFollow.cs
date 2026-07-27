@@ -1,0 +1,100 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Object_LookFollow : MonoBehaviour
+{
+	public Transform objectFollow;
+    public bool faceAwayFromPlayer = false;
+    public Vector3 triggerRotation;
+
+    private bool isFollowing = false;
+	private GameObject rotationPivot;
+	
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!isFollowing)
+            return;
+
+        // 背向 ObjectFollow
+        if (faceAwayFromPlayer && rotationPivot != null && objectFollow != null)
+        {
+            Vector3 dir = rotationPivot.transform.position - objectFollow.position;
+            dir.y = 0;
+
+            if (dir != Vector3.zero)
+            {
+                rotationPivot.transform.rotation = Quaternion.LookRotation(dir);
+            }
+        }
+    }
+	
+	void LateUpdate()
+    {
+        if (!isFollowing || objectFollow == null)
+            return;
+
+        if (faceAwayFromPlayer && rotationPivot != null)
+        {
+            objectFollow.rotation = rotationPivot.transform.rotation;
+        }
+		else
+		{
+			objectFollow.rotation = Quaternion.Euler(triggerRotation);
+		}
+    }
+	
+	private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform == objectFollow)
+        {
+            isFollowing = true;
+
+            if (faceAwayFromPlayer)
+            {
+                if (rotationPivot == null)
+                {
+                    rotationPivot = new GameObject("RotationPivot");
+                }
+
+                rotationPivot.transform.position = transform.position;
+
+                Vector3 dir = rotationPivot.transform.position - objectFollow.position;
+                dir.y = 0;
+
+                if (dir != Vector3.zero)
+                {
+                    rotationPivot.transform.rotation = Quaternion.LookRotation(dir);
+                }
+
+                objectFollow.rotation = rotationPivot.transform.rotation;
+            }
+            else
+            {
+                objectFollow.rotation = Quaternion.Euler(triggerRotation);
+            }
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform == objectFollow)
+        {
+            isFollowing = false;
+			
+			if (rotationPivot != null)
+            {
+                Destroy(rotationPivot);
+                rotationPivot = null;
+            }
+        }
+    }
+}

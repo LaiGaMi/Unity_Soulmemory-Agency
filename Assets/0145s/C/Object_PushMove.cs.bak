@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Object_PushMove : MonoBehaviour, CanPush
 {
-    public float pushSpeed = 5f;
+	public float kg = 1f;
+	
 	private Rigidbody rb;
 	
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+		rb.mass = kg;
 	}
 	
 	public void PushObject(Vector3 direction, float power)

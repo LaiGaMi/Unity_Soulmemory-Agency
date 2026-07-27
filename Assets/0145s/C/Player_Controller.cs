@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Cinemachine;
 
-public class Player_Controller : MonoBehaviour
+public class Player_Controller : MonoBehaviour, StoryStop
 {
 	[Header("角色判定")]
     public int characterID = 1;
@@ -43,6 +43,7 @@ public class Player_Controller : MonoBehaviour
 	
 	[Header("Input System")]
     public InputActionReference moveInput;
+	public InputActionReference touchInput;
     public InputActionReference abilityInput;
 	
 	[Header("Mobile Joystick")]
@@ -62,6 +63,7 @@ public class Player_Controller : MonoBehaviour
 	[Header("互動設定")]
 	public Transform touchCheck;
 	public float touchRadius = 0.5f;
+	public LayerMask touchLayer;
 
     [Header("跳躍設定")]
     public float jumpForce = 11f;
@@ -103,8 +105,6 @@ public class Player_Controller : MonoBehaviour
 		cameraLookY = cameraLookObject.localPosition.y;
     }
 
-
-
     private void OnEnable()
     {
         if (moveInput != null)
@@ -116,9 +116,14 @@ public class Player_Controller : MonoBehaviour
         {
             abilityInput.action.Enable();
         }
+		
+		if (touchInput != null)
+        {
+            touchInput.action.Enable();
+        }
+		
+		currentMoveSpeed = 0f;
     }
-
-
 
     private void OnDisable()
     {
@@ -131,9 +136,12 @@ public class Player_Controller : MonoBehaviour
         {
             abilityInput.action.Disable();
         }
+		
+		if (touchInput != null)
+        {
+            touchInput.action.Disable();
+        }
     }
-
-
 
     void Update()
     {
@@ -273,6 +281,14 @@ public class Player_Controller : MonoBehaviour
 	//能力按鍵
     private void CheckAbilityInput()
     {
+		if (touchInput != null)
+        {
+            if (touchInput.action.WasPressedThisFrame())
+            {
+                Touch();
+            }
+        }
+		
         if (abilityInput != null)
         {
             if (abilityInput.action.WasPressedThisFrame())
@@ -567,6 +583,11 @@ public class Player_Controller : MonoBehaviour
 	//推動
 	void Push()
 	{
+		if(!isGrounded)
+		{
+			return;
+		}
+		
 		//檢查前方是否有可推物
 		Collider[] pushObjects = Physics.OverlapSphere(
 			touchCheck.position,
@@ -597,6 +618,37 @@ public class Player_Controller : MonoBehaviour
 		}
 	}
 	
+	//互動物件
+	public void Touch()
+	{
+		if(!isGrounded)
+		{
+			return;
+		}
+		
+		//檢查前方是否有可推物
+		Collider[] touchObjects = Physics.OverlapSphere(
+			touchCheck.position,
+			touchRadius,
+			touchLayer
+		);
+		
+		//沒有可推物
+		if(touchObjects.Length == 0)
+		{
+			return;
+		}
+		
+		//取得第一個可推物
+		CanTouch touchObject =
+			touchObjects[0].GetComponent<CanTouch>();
+			
+		//確認是否可以推
+		if(touchObject != null)
+		{
+			touchObject.TouchObject();
+		}
+	}
 	
 	//攝影機縮放
 	private System.Collections.IEnumerator ChangeZ(float target)
@@ -631,6 +683,15 @@ public class Player_Controller : MonoBehaviour
         moveCoroutine = null;
     }
 	
+	public void StartStory()
+	{
+	    enabled = false;
+	}
+
+	public void StopStory()
+	{
+	    enabled = true;
+	}
 	
 	//腳底判定顯示
 	private void OnDrawGizmosSelected()

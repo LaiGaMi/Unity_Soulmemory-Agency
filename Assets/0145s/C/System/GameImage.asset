@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115ffe8137ee7aa48b8ee05cdcc0014d, type: 3}
+  m_Name: GameImage
+  m_EditorClassIdentifier: 
+  dialogueBoxList:
+  - id: talk_test
+    image: {fileID: -2040034905, guid: a3e6930a727810140a186204fa54ea2c, type: 3}
+  nameBoxList:
+  - id: name_test
+    image: {fileID: 880475835, guid: 594938ae1b56c764cbad035d0fba616e, type: 3}
+  characterImageList:
+  - id: no
+    image: {fileID: -102244380, guid: fe072206795e1684d9fcd25eb58b1f71, type: 3}
+  - id: saite_test
+    image: {fileID: 1268715143, guid: 0ec673b5fb9b28848a47f022a2c456f0, type: 3}
+  - id: justin_test
+    image: {fileID: -1520774470, guid: 04d9f006e7a59a84b9f0de920c41ef9c, type: 3}
+  - id: Freya_test
+    image: {fileID: 999187815, guid: 08d0486cc829f984ca4f6fcab2a29d7b, type: 3}
+  - id: rein_test
+    image: {fileID: 1359688475, guid: ca3154ca538c1274fb849d19354d96f9, type: 3}

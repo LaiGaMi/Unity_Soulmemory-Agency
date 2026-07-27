@@ -1,0 +1,95 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[CreateAssetMenu(
+    fileName = "GameItem",
+    menuName = "Game/Game Item"
+)]
+
+public class GameItem : ScriptableObject
+{
+    //物品清單
+    [Header("物品清單")]
+    public List<ItemData> itemList =
+        new List<ItemData>();
+
+
+    //取得物品資料
+    public ItemData GetItem(string id)
+    {
+        foreach(ItemData data in itemList)
+        {
+            if(data.id == id)
+            {
+                return data;
+            }
+        }
+
+
+        Debug.LogWarning(
+            "找不到物品 ID : " + id
+        );
+
+        return null;
+    }
+
+
+    //取得物品圖示
+    public Sprite GetItemIcon(string id)
+    {
+        ItemData data = GetItem(id);
+
+        if(data != null)
+        {
+            return data.icon;
+        }
+
+        return null;
+    }
+
+
+    //取得排序編號
+    public int GetItemSort(string id)
+    {
+        ItemData data = GetItem(id);
+
+        if(data != null)
+        {
+            return data.sortID;
+        }
+
+        return -1;
+    }
+}
+
+
+
+//物品資料
+[System.Serializable]
+public class ItemData
+{
+    //物品ID
+    public string id;
+
+    //排序編號
+    public int sortID;
+
+    //物品圖示
+    public Sprite icon;
+
+    //物品類型
+    public ItemType type;
+}
+
+
+
+//物品類型
+public enum ItemType
+{
+    Normal,     //普通物品
+    Key,        //鑰匙
+    Puzzle,     //解謎物品
+    Story,      //劇情物品
+}

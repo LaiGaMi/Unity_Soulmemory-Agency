@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Object_GetItem : MonoBehaviour
+{
+	[Header("獲得物品ID")]
+    public string[] itemID;
+	
+	public GameObject[] Objects;
+    // Start is called before the first frame update
+    public void OnEnable()
+    {
+		foreach(string it in itemID)
+		{
+			if(C_PlayerInventory.Instance != null && it != null)
+			{
+				C_PlayerInventory.Instance.AddItem(it);
+			}
+		}
+		
+		foreach(GameObject obj in Objects)
+        {
+            if(obj != null)
+            {
+                obj.SetActive(true);
+            }
+        }
+    }
+	
+	
+}
