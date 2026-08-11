@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PuzzleUI : MonoBehaviour
+{
+    public void PuzzleExit()
+    {
+        if(Puzzle.CurrentPuzzle != null)
+        {
+            Puzzle.CurrentPuzzle.PuzzleExit();
+        }
+    }
+}

@@ -26,6 +26,8 @@ public class Object_GetItem : MonoBehaviour
                 obj.SetActive(true);
             }
         }
+		
+		gameObject.SetActive(false);
     }
 	
 	

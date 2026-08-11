@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CarPlayer
+  - relics_value
+  - relics_private
+  - relics_daily
+  - relics_trash
+  - relics_world
   layers:
   - Default
   - TransparentFX

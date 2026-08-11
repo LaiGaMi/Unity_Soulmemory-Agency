@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerChange : MonoBehaviour
+{
+    [Header("玩家物件")]
+    public Player_Controller player;
+
+    [Header("指定角色編號")]
+    public int targetCharacterID = 1;
+
+    private void OnEnable()
+    {
+        if (player == null)
+        {
+            Debug.LogWarning("ChangePlayerID：尚未綁定 Player Controller！");
+            return;
+        }
+
+        player.characterID = targetCharacterID;
+
+        Debug.Log("玩家角色編號已改為：" + targetCharacterID);
+    }
+}

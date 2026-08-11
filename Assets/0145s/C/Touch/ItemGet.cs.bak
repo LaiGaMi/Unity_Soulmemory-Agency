@@ -13,9 +13,9 @@ public class Object_GetItem : MonoBehaviour
     {
 		foreach(string it in itemID)
 		{
-			if(C_PlayerInventory.Instance != null && it != null)
+			if(PlayerInventory.Instance != null && it != null)
 			{
-				C_PlayerInventory.Instance.AddItem(it);
+				PlayerInventory.Instance.AddItem(it);
 			}
 		}
 		
@@ -26,6 +26,7 @@ public class Object_GetItem : MonoBehaviour
                 obj.SetActive(true);
             }
         }
+		gameObject.SetActive(false);
     }
 	
 	

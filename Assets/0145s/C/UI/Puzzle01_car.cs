@@ -1,0 +1,253 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class Puzzle01_car : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+{
+	[Header("允許移動方向")]
+    public bool moveX = true;
+    public bool moveY = true;
+	
+	[Header("座標吸附")]
+	public int gridSize = 25;
+	
+	private RectTransform rect;
+    private RectTransform moveArea;
+    private Canvas canvas;
+
+    private Vector2 offset;
+	
+	private static List<Puzzle01_car> allCars =
+    	new List<Puzzle01_car>();
+	
+    void Start()
+    {
+		rect =
+            GetComponent<RectTransform>();
+		
+		Transform root =
+        	transform.parent.parent;
+		
+        PuzzleUI area =
+            root.GetComponentInParent<PuzzleUI>();
+
+        if(area != null)
+        {
+            moveArea =
+                area.moveArea;
+        }
+
+        canvas =
+            GetComponentInParent<Canvas>();
+    }
+	
+	void OnEnable()
+	{
+    	if(!allCars.Contains(this))
+    	{
+    	    allCars.Add(this);
+    	}
+	}
+
+	void OnDisable()
+	{
+	    allCars.Remove(this);
+	}
+	
+    //開始拖曳
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        RectTransformUtility.
+        ScreenPointToLocalPointInRectangle(
+            rect.parent as RectTransform,
+            eventData.position,
+            eventData.pressEventCamera,
+            out Vector2 localPoint
+        );
+
+        offset =
+            rect.anchoredPosition -
+            localPoint;
+    }
+
+    //拖曳中
+    public void OnDrag(PointerEventData eventData)
+    {
+        if(moveArea == null)
+            return;
+
+        RectTransformUtility.
+        ScreenPointToLocalPointInRectangle(
+            rect.parent as RectTransform,
+            eventData.position,
+            eventData.pressEventCamera,
+            out Vector2 localPoint
+        );
+
+        Vector2 pos =
+            localPoint + offset;
+
+        //限制方向
+        if(!moveX)
+        {
+            pos.x =
+                rect.anchoredPosition.x;
+        }
+        if(!moveY)
+        {
+            pos.y =
+                rect.anchoredPosition.y;
+        }
+        float halfWidth =
+            rect.rect.width * 0.5f;
+        float halfHeight =
+            rect.rect.height * 0.5f;
+
+        //限制範圍
+        pos.x =
+            Mathf.Clamp(
+                pos.x,
+                moveArea.rect.xMin + halfWidth,
+                moveArea.rect.xMax - halfWidth
+            );
+        pos.y =
+            Mathf.Clamp(
+                pos.y,
+                moveArea.rect.yMin + halfHeight,
+                moveArea.rect.yMax - halfHeight
+            );
+
+        Vector2 currentPos =
+            rect.anchoredPosition;
+
+        //取得X移動量
+        float moveXAmount =
+            pos.x - currentPos.x;
+
+        //取得Y移動量
+        float moveYAmount =
+            pos.y - currentPos.y;
+
+        //先處理X軸
+        currentPos =
+            MoveAxis(
+                currentPos,
+                Vector2.right,
+                moveXAmount
+            );
+
+        //再處理Y軸
+        currentPos =
+            MoveAxis(
+                currentPos,
+                Vector2.up,
+                moveYAmount
+            );
+
+        rect.anchoredPosition =
+            currentPos;
+    }
+	
+	Vector2 MoveAxis(Vector2 current, Vector2 axis, float amount)
+	{
+    	if(amount == 0)
+    	    return current;
+
+    	float distance =
+    	    Mathf.Abs(amount);
+
+    	float direction =
+    	    Mathf.Sign(amount);
+
+    	float step =
+    	    1f;
+
+    	while(distance > 0)
+    	{
+    	    float move =
+    	        Mathf.Min(
+    	            step,
+    	            distance
+    	        );
+
+    	    Vector2 test =
+    	        current +
+    	        axis *
+    	        move *
+    	        direction;
+
+    	    if(CheckCollision(test))
+    	    {
+    	        break;
+    	    }
+        	current =
+        	    test;
+        	distance -= move;
+    	}
+    	return current;
+	}
+
+    //結束拖曳
+    public void OnEndDrag(PointerEventData eventData)
+    {
+		Vector2 pos =
+        	rect.anchoredPosition;
+
+    	if(gridSize > 0)
+    	{
+    	    pos.x =
+    	        Mathf.Round(
+     	           pos.x / gridSize
+    	        ) * gridSize;
+        	pos.y =
+        	    Mathf.Round(
+        	        pos.y / gridSize
+        	    ) * gridSize;
+    	}
+    	rect.anchoredPosition =
+    	    pos;
+    }
+	
+	//檢查是否碰撞其他車子
+    bool CheckCollision(Vector2 targetPos)
+    {
+        Rect rectA =
+            new Rect(
+                targetPos.x -
+                rect.rect.width * 0.5f,
+
+                targetPos.y -
+                rect.rect.height * 0.5f,
+
+                rect.rect.width,
+
+                rect.rect.height
+            );
+        foreach(
+            Puzzle01_car other
+            in allCars
+        )
+        {
+            if(other == this)
+                continue;
+            Rect otherRect =
+                new Rect(
+                    other.rect.anchoredPosition.x -
+                    other.rect.rect.width * 0.5f,
+
+                    other.rect.anchoredPosition.y -
+                    other.rect.rect.height * 0.5f,
+
+                    other.rect.rect.width,
+
+                    other.rect.rect.height
+                );
+            if(rectA.Overlaps(otherRect))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}

@@ -12,6 +12,11 @@ public interface CanPush
 
 public interface StoryStop
 {
-	void StartStoty();
-	void StopStoty();
+	void StartStory();
+	void StopStory();
+}
+
+public interface puzzle
+{
+	void PuzzleExit();
 }

@@ -15,3 +15,9 @@ public interface StoryStop
 	void StartStory();
 	void StopStory();
 }
+
+public interface puzzle
+{
+	void PuzzleExit();
+	void PuzzleSuccess();
+}

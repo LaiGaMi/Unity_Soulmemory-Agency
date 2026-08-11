@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerChange : MonoBehaviour
+{
+    [Header("指定角色編號")]
+    public int targetCharacterID = 1;
+
+    private Player_Controller playerController;
+
+    private void Awake()
+    {
+        playerController = GetComponent<Player_Controller>();
+    }
+
+    private void OnEnable()
+    {
+        if (playerController == null)
+        {
+            playerController = GetComponent<Player_Controller>();
+        }
+
+        if (playerController != null)
+        {
+            playerController.characterID = targetCharacterID;
+        }
+        else
+        {
+            Debug.LogWarning("找不到 Player_Controller！");
+        }
+    }
+}
