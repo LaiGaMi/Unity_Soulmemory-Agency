@@ -13,19 +13,64 @@ MonoBehaviour:
   m_Name: GameImage
   m_EditorClassIdentifier: 
   dialogueBoxList:
-  - id: talk_test
+  - id: talk_normal
     image: {fileID: -2040034905, guid: a3e6930a727810140a186204fa54ea2c, type: 3}
   nameBoxList:
-  - id: name_test
+  - id: name_normal
     image: {fileID: 880475835, guid: 594938ae1b56c764cbad035d0fba616e, type: 3}
   characterImageList:
-  - id: no
-    image: {fileID: -102244380, guid: fe072206795e1684d9fcd25eb58b1f71, type: 3}
-  - id: saite_test
-    image: {fileID: 1268715143, guid: 0ec673b5fb9b28848a47f022a2c456f0, type: 3}
-  - id: justin_test
-    image: {fileID: -1520774470, guid: 04d9f006e7a59a84b9f0de920c41ef9c, type: 3}
-  - id: Freya_test
-    image: {fileID: 999187815, guid: 08d0486cc829f984ca4f6fcab2a29d7b, type: 3}
-  - id: rein_test
-    image: {fileID: 1359688475, guid: ca3154ca538c1274fb849d19354d96f9, type: 3}
+  - characterId: saite
+    portraitList:
+    - id: normal
+      images:
+      - {fileID: -56459374, guid: ddb6dd8a85337254eb72859674d15580, type: 3}
+      - {fileID: 684914550, guid: ddb6dd8a85337254eb72859674d15580, type: 3}
+      - {fileID: -695074849, guid: ddb6dd8a85337254eb72859674d15580, type: 3}
+      - {fileID: 74608785, guid: ddb6dd8a85337254eb72859674d15580, type: 3}
+      - {fileID: 1789530052, guid: ddb6dd8a85337254eb72859674d15580, type: 3}
+      - {fileID: 229299736, guid: ddb6dd8a85337254eb72859674d15580, type: 3}
+      loopTime: 0.1
+  - characterId: justin
+    portraitList:
+    - id: normal
+      images:
+      - {fileID: -1342082989, guid: 7601d56ad5c9f344b8d2de02ba9e9675, type: 3}
+      - {fileID: -210700247, guid: 7601d56ad5c9f344b8d2de02ba9e9675, type: 3}
+      - {fileID: -1319518191, guid: 7601d56ad5c9f344b8d2de02ba9e9675, type: 3}
+      - {fileID: 325995337, guid: 7601d56ad5c9f344b8d2de02ba9e9675, type: 3}
+      - {fileID: -810186248, guid: 7601d56ad5c9f344b8d2de02ba9e9675, type: 3}
+      - {fileID: 1516961549, guid: 7601d56ad5c9f344b8d2de02ba9e9675, type: 3}
+      loopTime: 0.1
+  - characterId: 
+    portraitList:
+    - id: normal
+      images: []
+      loopTime: 0
+  - characterId: rein
+    portraitList:
+    - id: normal
+      images:
+      - {fileID: 1131852016, guid: 5e9c695722fb8c34898de3ae55666028, type: 3}
+      - {fileID: -2043679332, guid: 5e9c695722fb8c34898de3ae55666028, type: 3}
+      - {fileID: 806125320, guid: 5e9c695722fb8c34898de3ae55666028, type: 3}
+      - {fileID: -955299153, guid: 5e9c695722fb8c34898de3ae55666028, type: 3}
+      - {fileID: 520519975, guid: 5e9c695722fb8c34898de3ae55666028, type: 3}
+      - {fileID: 848880982, guid: 5e9c695722fb8c34898de3ae55666028, type: 3}
+      loopTime: 0.1
+  - characterId: freya
+    portraitList:
+    - id: normal
+      images:
+      - {fileID: 1828372674, guid: 892939455a2c6b24089fa1feff1cb634, type: 3}
+      - {fileID: 1418059891, guid: 892939455a2c6b24089fa1feff1cb634, type: 3}
+      - {fileID: -663077471, guid: 892939455a2c6b24089fa1feff1cb634, type: 3}
+      - {fileID: 334930577, guid: 892939455a2c6b24089fa1feff1cb634, type: 3}
+      - {fileID: 763187961, guid: 892939455a2c6b24089fa1feff1cb634, type: 3}
+      - {fileID: 1214384757, guid: 892939455a2c6b24089fa1feff1cb634, type: 3}
+      loopTime: 0.1
+  dialogueSoundList:
+  - id: text
+    clip: {fileID: 8300000, guid: c3c18f7568a7ed64cb3b410587a61d9f, type: 3}
+  soundEffectList:
+  - id: text
+    clip: {fileID: 8300000, guid: b5fcc46bda60da14d816b8284f4437c5, type: 3}

@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class PlayerChange : MonoBehaviour
 {
+    [Header("玩家物件")]
+    public Player_Controller player;
+
     [Header("指定角色編號")]
     public int targetCharacterID = 1;
 
-    private Player_Controller playerController;
-
-    private void Awake()
-    {
-        playerController = GetComponent<Player_Controller>();
-    }
-
     private void OnEnable()
     {
-        if (playerController == null)
+        if (player == null)
         {
-            playerController = GetComponent<Player_Controller>();
+            Debug.LogWarning("ChangePlayerID：尚未綁定 Player Controller！");
+            return;
         }
 
-        if (playerController != null)
-        {
-            playerController.characterID = targetCharacterID;
-        }
-        else
-        {
-            Debug.LogWarning("找不到 Player_Controller！");
-        }
+        player.characterID = targetCharacterID;
+		player.UpdateCharacterObjects();
+
+        Debug.Log("玩家角色編號已改為：" + targetCharacterID);
     }
 }

@@ -11,6 +11,11 @@ public class Player_Controller : MonoBehaviour, StoryStop
 	[Header("角色判定")]
     public int characterID = 1;
 	
+	[Header("角色物件切換")]
+	public List<GameObject> characterObjects = new List<GameObject>();
+
+	private int previousCharacterID = -1;
+	
 	[Header("重力設定")]
     public float gravity = -251f;
     public float maxFallSpeed = -50f;
@@ -103,6 +108,8 @@ public class Player_Controller : MonoBehaviour, StoryStop
 		normalMoveSpeed = moveSpeed;
 		normalgroundRadius = groundRadius;
 		cameraLookY = cameraLookObject.localPosition.y;
+		
+		UpdateCharacterObjects();
     }
 
     private void OnEnable()
@@ -147,27 +154,29 @@ public class Player_Controller : MonoBehaviour, StoryStop
     {
 		GetInput();
 		CheckAbilityInput();
-		if (!isClimbing)
+
+		if(!isClimbing)
 		{
-    		Move();
-    		Gravity();
+			Move();
+			Gravity();
 		}
 		else
 		{
-		    if(!isClimbRotating)
-    		{
-    		    ClimbMove();
-    		}
+			if(!isClimbRotating)
+			{
+				ClimbMove();
+			}
 		}
-		
+
 		float currentZ = transposer.m_FollowOffset.z;
-		if (!Mathf.Approximately(currentZ, targetZ))
-        {
-            if (moveCoroutine == null)
-            {
-                moveCoroutine = StartCoroutine(ChangeZ(targetZ));
-            }
-        }
+
+		if(!Mathf.Approximately(currentZ, targetZ))
+		{
+			if(moveCoroutine == null)
+			{
+				moveCoroutine = StartCoroutine(ChangeZ(targetZ));
+			}
+		}
     }
 	
 	//移動按鍵
@@ -647,6 +656,38 @@ public class Player_Controller : MonoBehaviour, StoryStop
 		if(touchObject != null)
 		{
 			touchObject.TouchObject();
+		}
+	}
+	
+	// 根據 characterID 切換角色物件
+	public void UpdateCharacterObjects()
+	{
+		// 先隱藏所有物件
+		for(int i = 0; i < characterObjects.Count; i++)
+		{
+			if(characterObjects[i] != null)
+			{
+				characterObjects[i].SetActive(false);
+			}
+		}
+
+		// 根據 characterID 取得對應索引
+		int index = characterID - 1;
+
+		if(index >= 0 && index < characterObjects.Count)
+		{
+			if(characterObjects[index] != null)
+			{
+				characterObjects[index].SetActive(true);
+			}
+		}
+		else
+		{
+			Debug.LogWarning(
+				"Player_Controller：characterID " +
+				characterID +
+				" 沒有對應的角色物件。"
+			);
 		}
 	}
 	

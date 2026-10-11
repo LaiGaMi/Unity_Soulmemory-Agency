@@ -1,0 +1,28 @@
+{
+  "dialogues": [
+    {
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "no", "focus": false},
+      "ch02": {"id": "saite_normal", "focus": true},
+      "ch03": {"id": "no", "focus": false},
+      "name": "賽特",
+      "talk": "哇哦，通過了誒！"
+    },
+	{
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "saite_normal", "focus": false},
+      "ch02": {"id": "no", "focus": false},
+      "ch03": {"id": "justin_normal", "focus": true},
+      "name": "捷思汀",
+      "talk": "哪個天才在這種地方塞解謎？當我們很閒嗎。"
+    },
+	{
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "saite_normal", "focus": false},
+      "ch02": {"id": "freya_normal", "focus": true},
+      "ch03": {"id": "justin_normal", "focus": false},
+      "name": "芙蕾雅",
+      "talk": "所以有錢嗎！快告訴我解開謎題後有錢！！！"
+    }
+  ]
+}

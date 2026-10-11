@@ -19,7 +19,10 @@ public class PlayerChange : MonoBehaviour
         }
 
         player.characterID = targetCharacterID;
+		player.UpdateCharacterObjects();
 
         Debug.Log("玩家角色編號已改為：" + targetCharacterID);
+		
+		gameObject.SetActive(false);
     }
 }

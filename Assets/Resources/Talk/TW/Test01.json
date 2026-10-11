@@ -1,0 +1,42 @@
+{
+  "dialogues": [
+    {
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "no", "focus": false},
+      "ch02": {"id": "saite_normal", "focus": true},
+      "ch03": {"id": "no", "focus": false},
+	  "soundId": "text",
+      "name": "賽特",
+      "talk": "你們好，今天天氣真好！"
+    },
+	{
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "saite_normal", "focus": false},
+      "ch02": {"id": "no", "focus": false},
+      "ch03": {"id": "justin_normal", "focus": true},
+	  "soundId": "text",
+      "name": "捷思汀",
+      "talk": "菜鳥，過來。\n這裡有個難纏的櫃子需要整理。"
+    },
+	{
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "rein_normal", "focus": true},
+      "ch02": {"id": "no", "focus": false},
+      "ch03": {"id": "justin_normal", "focus": false},
+	  "textInterval": 0.5,
+	  "soundId": "text",
+      "name": "雷恩",
+      "talk": "那個～這個讓新人來做有點多吧，\n讓我來整理吧！"
+    },
+	{
+      "talkBox": "talk_normal", "nameBox": "name_normal",
+      "ch01": {"id": "rein_normal", "focus": false},
+      "ch02": {"id": "no", "focus": false},
+      "ch03": {"id": "freya_normal", "focus": true},
+	  "effectSoundId": "text",
+	  "soundId": "text",
+      "name": "芙蕾雅",
+      "talk": "雷恩，別管他了！馬桶爆炸了！快來幫我啊啊啊！"
+    }
+  ]
+}

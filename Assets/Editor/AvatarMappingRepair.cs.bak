@@ -1,0 +1,548 @@
+
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class AvatarMappingRepair : EditorWindow
+{
+    private GameObject model;
+    private ModelImporter importer;
+
+    private readonly Dictionary<string, string> mapping =
+        new Dictionary<string, string>();
+
+    private readonly List<Transform> bones =
+        new List<Transform>();
+
+    private readonly List<string> paths =
+        new List<string>();
+
+    private string selectedPart = "Head";
+    private Vector2 scroll;
+    private bool showFingers = true;
+    private bool showOther = true;
+
+    private static readonly string[] MainParts =
+    {
+        "Head", "Neck", "Jaw", "LeftEye", "RightEye",
+        "Hips", "Spine", "Chest", "UpperChest",
+        "LeftShoulder", "LeftUpperArm", "LeftLowerArm", "LeftHand",
+        "RightShoulder", "RightUpperArm", "RightLowerArm", "RightHand",
+        "LeftUpperLeg", "LeftLowerLeg", "LeftFoot", "LeftToes",
+        "RightUpperLeg", "RightLowerLeg", "RightFoot", "RightToes"
+    };
+
+    private static readonly string[] Fingers =
+    {
+        "LeftThumbProximal", "LeftThumbIntermediate", "LeftThumbDistal",
+        "LeftIndexProximal", "LeftIndexIntermediate", "LeftIndexDistal",
+        "LeftMiddleProximal", "LeftMiddleIntermediate", "LeftMiddleDistal",
+        "LeftRingProximal", "LeftRingIntermediate", "LeftRingDistal",
+        "LeftLittleProximal", "LeftLittleIntermediate", "LeftLittleDistal",
+
+        "RightThumbProximal", "RightThumbIntermediate", "RightThumbDistal",
+        "RightIndexProximal", "RightIndexIntermediate", "RightIndexDistal",
+        "RightMiddleProximal", "RightMiddleIntermediate", "RightMiddleDistal",
+        "RightRingProximal", "RightRingIntermediate", "RightRingDistal",
+        "RightLittleProximal", "RightLittleIntermediate", "RightLittleDistal"
+    };
+
+    [MenuItem("工具/角色骨架/繁體中文 Avatar Mapping")]
+    private static void Open()
+    {
+        GetWindow<AvatarMappingRepair>("人體骨骼設定");
+    }
+
+    private void OnGUI()
+    {
+        EditorGUILayout.LabelField(
+            "Humanoid 人體骨骼映射",
+            EditorStyles.boldLabel);
+
+        model = (GameObject)EditorGUILayout.ObjectField(
+            "FBX 模型",
+            model,
+            typeof(GameObject),
+            false);
+
+        if (model == null)
+        {
+            EditorGUILayout.HelpBox(
+                "請將 Project 視窗中的 FBX 模型拖到上方。",
+                MessageType.Info);
+            return;
+        }
+
+        string assetPath = AssetDatabase.GetAssetPath(model);
+        importer = AssetImporter.GetAtPath(assetPath) as ModelImporter;
+
+        if (importer == null)
+        {
+            EditorGUILayout.HelpBox(
+                "請選取 Project 中的 FBX 模型資產。",
+                MessageType.Error);
+            return;
+        }
+
+        if (bones.Count == 0)
+            LoadBones();
+
+        EditorGUILayout.LabelField("模型骨骼數量", bones.Count.ToString());
+
+        EditorGUILayout.Space(6);
+
+        EditorGUILayout.BeginHorizontal();
+
+        // 左側：人體示意圖
+        EditorGUILayout.BeginVertical(GUILayout.Width(235));
+        DrawHuman();
+        EditorGUILayout.EndVertical();
+
+        // 右側：骨骼選擇
+        EditorGUILayout.BeginVertical();
+
+        EditorGUILayout.LabelField(
+            "目前部位：" + ChineseName(selectedPart),
+            EditorStyles.boldLabel);
+
+        string[] options = new string[paths.Count + 1];
+        options[0] = "— 未指定 —";
+
+        for (int i = 0; i < paths.Count; i++)
+            options[i + 1] = paths[i];
+
+        string current = mapping.ContainsKey(selectedPart)
+            ? mapping[selectedPart]
+            : "";
+
+        int currentIndex = paths.IndexOf(current) + 1;
+
+        int newIndex = EditorGUILayout.Popup(
+            "模型骨骼",
+            currentIndex,
+            options);
+
+        if (newIndex == 0)
+            mapping[selectedPart] = "";
+        else
+            mapping[selectedPart] = paths[newIndex - 1];
+
+        EditorGUILayout.Space(5);
+
+        EditorGUILayout.HelpBox(
+            IsRequired(selectedPart)
+                ? "此為必要骨骼，必須指定有效的模型骨骼。"
+                : "此為選用骨骼，可依模型結構決定是否指定。",
+            IsRequired(selectedPart)
+                ? MessageType.Warning
+                : MessageType.Info);
+
+        if (GUILayout.Button("清除此部位"))
+            mapping[selectedPart] = "";
+
+        EditorGUILayout.Space(8);
+
+        EditorGUILayout.LabelField("所有人體部位", EditorStyles.boldLabel);
+
+        scroll = EditorGUILayout.BeginScrollView(
+            scroll, GUILayout.MinHeight(230));
+
+        foreach (string part in MainParts)
+            DrawPartRow(part);
+
+        showFingers = EditorGUILayout.Foldout(
+            showFingers, "手指關節（左右手）", true);
+
+        if (showFingers)
+        {
+            foreach (string part in Fingers)
+                DrawPartRow(part);
+        }
+
+        showOther = EditorGUILayout.Foldout(
+            showOther, "其他人體骨骼", true);
+
+        if (showOther)
+        {
+            foreach (string part in HumanTrait.BoneName)
+            {
+                if (Array.IndexOf(MainParts, part) >= 0 ||
+                    Array.IndexOf(Fingers, part) >= 0)
+                    continue;
+
+                DrawPartRow(part);
+            }
+        }
+
+        EditorGUILayout.EndScrollView();
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.Space(8);
+
+        if (GUILayout.Button("載入 FBX 現有映射"))
+            LoadExistingMapping();
+
+        if (GUILayout.Button("自動依骨骼名稱配對"))
+            AutoMatch();
+
+        GUI.backgroundColor = new Color(0.65f, 0.9f, 0.65f);
+
+        if (GUILayout.Button(
+            "套用全部設定並重新匯入",
+            GUILayout.Height(35)))
+        {
+            ApplyMapping();
+        }
+
+        GUI.backgroundColor = Color.white;
+    }
+
+    private void DrawHuman()
+    {
+        EditorGUILayout.LabelField(
+            "人體部位（點擊選取）",
+            EditorStyles.boldLabel);
+
+        // 以文字與按鈕構成簡易正面人體示意圖。
+        EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+
+        GUILayout.Space(5);
+        CenterButton("Head", 90);
+        CenterButton("Neck", 90);
+        CenterButton("UpperChest", 110);
+        CenterButton("Chest", 110);
+        CenterButton("Spine", 110);
+        CenterButton("Hips", 110);
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftShoulder", 85);
+        SideButton("RightShoulder", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftUpperArm", 85);
+        SideButton("RightUpperArm", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftLowerArm", 85);
+        SideButton("RightLowerArm", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftHand", 85);
+        SideButton("RightHand", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftUpperLeg", 85);
+        SideButton("RightUpperLeg", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftLowerLeg", 85);
+        SideButton("RightLowerLeg", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftFoot", 85);
+        SideButton("RightFoot", 85);
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.BeginHorizontal();
+        SideButton("LeftToes", 85);
+        SideButton("RightToes", 85);
+        EditorGUILayout.EndHorizontal();
+
+        GUILayout.Space(5);
+
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.HelpBox(
+            "左右以角色本人的左右為準，不是觀察者的左右。",
+            MessageType.None);
+    }
+
+    private void CenterButton(string part, float width)
+    {
+        if (GUILayout.Button(
+            ButtonLabel(part),
+            GUILayout.Width(width)))
+            selectedPart = part;
+    }
+
+    private void SideButton(string part, float width)
+    {
+        if (GUILayout.Button(
+            ButtonLabel(part),
+            GUILayout.Width(width)))
+            selectedPart = part;
+    }
+
+    private string ButtonLabel(string part)
+    {
+        string prefix = selectedPart == part ? "▶ " : "";
+
+        bool assigned = mapping.ContainsKey(part) &&
+                        !string.IsNullOrEmpty(mapping[part]);
+
+        return prefix + ChineseName(part) +
+               (assigned ? " ✓" : "");
+    }
+
+    private void DrawPartRow(string part)
+    {
+        EditorGUILayout.BeginHorizontal();
+
+        if (GUILayout.Button(
+            ButtonLabel(part),
+            GUILayout.Width(175)))
+            selectedPart = part;
+
+        string current = mapping.ContainsKey(part)
+            ? mapping[part]
+            : "";
+
+        EditorGUILayout.LabelField(
+            string.IsNullOrEmpty(current)
+                ? "未指定"
+                : current,
+            GUILayout.MinWidth(50));
+
+        EditorGUILayout.EndHorizontal();
+    }
+
+    private void LoadBones()
+    {
+        bones.Clear();
+        paths.Clear();
+
+        Transform[] all =
+            model.GetComponentsInChildren<Transform>(true);
+
+        foreach (Transform t in all)
+        {
+            bones.Add(t);
+            paths.Add(GetPath(t, model.transform));
+        }
+
+        LoadExistingMapping();
+    }
+
+    private string GetPath(Transform t, Transform root)
+    {
+        string path = t.name;
+        Transform current = t;
+
+        while (current.parent != null && current != root)
+        {
+            current = current.parent;
+
+            if (current != root)
+                path = current.name + "/" + path;
+        }
+
+        return path;
+    }
+
+    private void LoadExistingMapping()
+    {
+        if (importer == null)
+            return;
+
+        mapping.Clear();
+
+        HumanBone[] existing =
+            importer.humanDescription.human;
+
+        foreach (HumanBone human in existing)
+        {
+            string path = "";
+
+            for (int i = 0; i < bones.Count; i++)
+            {
+                if (bones[i].name == human.boneName)
+                {
+                    path = paths[i];
+                    break;
+                }
+            }
+
+            mapping[human.humanName] = path;
+        }
+
+        Repaint();
+    }
+
+    private void AutoMatch()
+    {
+        foreach (string part in HumanTrait.BoneName)
+        {
+            for (int i = 0; i < bones.Count; i++)
+            {
+                if (string.Equals(
+                    bones[i].name,
+                    part,
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    mapping[part] = paths[i];
+                    break;
+                }
+            }
+        }
+
+        Repaint();
+    }
+
+    private bool IsRequired(string part)
+    {
+        string[] names = HumanTrait.BoneName;
+
+        for (int i = 0; i < names.Length; i++)
+        {
+            if (names[i] == part)
+                return HumanTrait.RequiredBone(i);
+        }
+
+        return false;
+    }
+
+    private string ChineseName(string part)
+    {
+        switch (part)
+        {
+            case "Hips": return "骨盆";
+            case "Spine": return "脊椎";
+            case "Chest": return "胸部";
+            case "UpperChest": return "上胸";
+            case "Neck": return "頸部";
+            case "Head": return "頭部";
+            case "Jaw": return "下顎";
+            case "LeftEye": return "左眼";
+            case "RightEye": return "右眼";
+
+            case "LeftShoulder": return "左肩";
+            case "LeftUpperArm": return "左上臂";
+            case "LeftLowerArm": return "左前臂";
+            case "LeftHand": return "左手";
+
+            case "RightShoulder": return "右肩";
+            case "RightUpperArm": return "右上臂";
+            case "RightLowerArm": return "右前臂";
+            case "RightHand": return "右手";
+
+            case "LeftUpperLeg": return "左大腿";
+            case "LeftLowerLeg": return "左小腿";
+            case "LeftFoot": return "左腳";
+            case "LeftToes": return "左腳趾";
+
+            case "RightUpperLeg": return "右大腿";
+            case "RightLowerLeg": return "右小腿";
+            case "RightFoot": return "右腳";
+            case "RightToes": return "右腳趾";
+
+            default:
+                string side = "";
+
+                if (part.StartsWith("Left"))
+                {
+                    side = "左";
+                    part = part.Substring(4);
+                }
+                else if (part.StartsWith("Right"))
+                {
+                    side = "右";
+                    part = part.Substring(5);
+                }
+
+                return side + part;
+        }
+    }
+
+    private void ApplyMapping()
+    {
+        if (importer == null)
+            return;
+
+        var result = new List<HumanBone>();
+        var usedBones = new HashSet<string>();
+
+        foreach (string part in HumanTrait.BoneName)
+        {
+            if (!mapping.ContainsKey(part) ||
+                string.IsNullOrEmpty(mapping[part]))
+            {
+                if (IsRequired(part))
+                {
+                    EditorUtility.DisplayDialog(
+                        "缺少必要骨骼",
+                        "尚未指定：" + ChineseName(part),
+                        "確定");
+                    return;
+                }
+
+                continue;
+            }
+
+            string path = mapping[part];
+            string boneName = null;
+
+            for (int i = 0; i < paths.Count; i++)
+            {
+                if (paths[i] == path)
+                {
+                    boneName = bones[i].name;
+                    break;
+                }
+            }
+
+            if (boneName == null)
+                continue;
+
+            if (!usedBones.Add(boneName))
+            {
+                EditorUtility.DisplayDialog(
+                    "骨骼重複",
+                    "同一根模型骨骼被重複指定：" + path,
+                    "確定");
+                return;
+            }
+
+            result.Add(new HumanBone
+            {
+                humanName = part,
+                boneName = boneName,
+                limit = new HumanLimit
+                {
+                    useDefaultValues = true
+                }
+            });
+        }
+
+        if (!EditorUtility.DisplayDialog(
+            "確認套用",
+            "即將套用 " + result.Count +
+            " 個人體骨骼並重新匯入 FBX。",
+            "套用",
+            "取消"))
+            return;
+
+        HumanDescription desc = importer.humanDescription;
+        desc.human = result.ToArray();
+
+        importer.animationType = ModelImporterAnimationType.Human;
+        importer.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
+        importer.humanDescription = desc;
+
+        importer.SaveAndReimport();
+        AssetDatabase.Refresh();
+
+        EditorUtility.DisplayDialog(
+            "已送交匯入器",
+            "映射已套用。請確認 Rig 頁面的 Avatar 狀態與 Console。",
+            "確定");
+    }
+}

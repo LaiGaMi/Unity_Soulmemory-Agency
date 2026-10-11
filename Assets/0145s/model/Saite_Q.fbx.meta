@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: e83b5986d20d6124ea62f96feaa7c0b2
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saite_Qface_texture_01normal
+    second: {fileID: 2100000, guid: 89ecfb837e890044c80c14de1c419acb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saite_clothing_texture
+    second: {fileID: 2100000, guid: 8f52fe56fa755f046a11f0db8024d3df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saite_face_texture
+    second: {fileID: 2100000, guid: 1a8277f045f6ea54eada2fd0bd36a5d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saite_hair_texture
+    second: {fileID: 2100000, guid: f61244f2d3517d34386940b60d70a818, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Saite_hair_texture.002
+    second: {fileID: 2100000, guid: 1ef59f17e7eb39d428f26b01b6e34386, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: "\u4E0A\u534A\u8EAB"
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3.L"
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3.R"
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u3072\u3056.L"
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u3072\u3056.R"
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3\u9996.L"
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3\u9996.R"
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u4E0A\u534A\u8EAB2"
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u982D"
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8155.L"
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8155.R"
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u3072\u3058.L"
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u3072\u3058.R"
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u624B\u9996.L"
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u624B\u9996.R"
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Saite_Q(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "A02\u8EAB\u9AD4.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "A01\u982D.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "A04\u93E1\u6846.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.20694785, y: 0.20694785, z: 0.20694785}
+    - name: "C02\u9818.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "C01\u8863.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "B01\u700F\u6D77.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "A03\u624B.001"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Saite
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u5168\u3066\u306E\u89AA"
+      parentName: Saite
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: -0.00000008429372, z: -0.0000000842937, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u4E0A\u534A\u8EAB"
+      parentName: "\u5168\u3066\u306E\u89AA"
+      position: {x: 0.0000000010885663, y: 0.3431341, z: 0.004565835}
+      rotation: {x: 0.016594676, y: 0.00000023838568, z: -1.628351e-15, w: 0.9998623}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: "\u4E0A\u534A\u8EAB2"
+      parentName: "\u4E0A\u534A\u8EAB"
+      position: {x: 6.1704556e-16, y: 0.19473152, z: -9.313226e-10}
+      rotation: {x: -0.04598241, y: 6.3982524e-14, z: -0.000000010963057, w: 0.99894226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u982D"
+      parentName: "\u4E0A\u534A\u8EAB2"
+      position: {x: -1.6216749e-10, y: 0.231921, z: 0.00068017875}
+      rotation: {x: 0.041241657, y: 3.5234423e-15, z: 0.000000009832777, w: 0.9991492}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: "\u982D_end"
+      parentName: "\u982D"
+      position: {x: -0, y: 0.94579303, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u8155.L"
+      parentName: "\u4E0A\u534A\u8EAB2"
+      position: {x: -0.17498392, y: 0.16661273, z: -0.006101954}
+      rotation: {x: 0.036247537, y: -0.044104416, z: 0.8018361, w: 0.5948108}
+      scale: {x: 1.0000031, y: 1.0000005, z: 1.0000002}
+    - name: "\u3072\u3058.L"
+      parentName: "\u8155.L"
+      position: {x: 0.0000000056170393, y: 0.14841278, z: 0.0000000055879354}
+      rotation: {x: 0.0011051969, y: -0.04401778, z: -0.11214043, w: 0.9927164}
+      scale: {x: 0.99999994, y: 1.0000004, z: 1.0000005}
+    - name: "\u624B\u9996.L"
+      parentName: "\u3072\u3058.L"
+      position: {x: -0.0000000050349627, y: 0.18047154, z: 0}
+      rotation: {x: -0.02129075, y: 0.06621537, z: 0.006226707, w: 0.9975588}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.99999994}
+    - name: "\u624B\u9996.L_end"
+      parentName: "\u624B\u9996.L"
+      position: {x: -0, y: 0.1523672, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u8155.R"
+      parentName: "\u4E0A\u534A\u8EAB2"
+      position: {x: 0.17498392, y: 0.16661273, z: -0.006101871}
+      rotation: {x: -0.036246996, y: -0.044101577, z: 0.8018361, w: -0.5948109}
+      scale: {x: 1.0000021, y: 1, z: 1.0000006}
+    - name: "\u3072\u3058.R"
+      parentName: "\u8155.R"
+      position: {x: -0.000000022060703, y: 0.14841275, z: 0.0000000013969839}
+      rotation: {x: 0.0011038558, y: 0.044018324, z: 0.11213968, w: 0.99271643}
+      scale: {x: 0.9999994, y: 1.0000004, z: 0.99999976}
+    - name: "\u624B\u9996.R"
+      parentName: "\u3072\u3058.R"
+      position: {x: -0.000000039144652, y: 0.18047133, z: 0.0000000034924597}
+      rotation: {x: -0.02128831, y: -0.066215254, z: -0.006227012, w: 0.99755883}
+      scale: {x: 1, y: 0.99999994, z: 0.9999998}
+    - name: "\u624B\u9996.R_end"
+      parentName: "\u624B\u9996.R"
+      position: {x: -0, y: 0.1523672, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u8DB3.L"
+      parentName: "\u4E0A\u534A\u8EAB"
+      position: {x: -0.13862981, y: -0.012845382, z: -0.003879963}
+      rotation: {x: -0.0470503, y: 0.08083588, z: 0.9947285, w: 0.042035855}
+      scale: {x: 1.0000024, y: 1.0000004, z: 1.0000093}
+    - name: "\u3072\u3056.L"
+      parentName: "\u8DB3.L"
+      position: {x: -0.0000000084983185, y: 0.15515693, z: -0.0000000121071935}
+      rotation: {x: -0.06822466, y: 0.9818637, z: -0.17676044, w: 0.006700085}
+      scale: {x: 0.99999994, y: 0.99999875, z: 1.0000004}
+    - name: "\u8DB3\u9996.L"
+      parentName: "\u3072\u3056.L"
+      position: {x: -0.0000000045401976, y: 0.14288977, z: 9.313226e-10}
+      rotation: {x: -0.6173125, y: -0.051940706, z: 0.012821403, w: 0.7848969}
+      scale: {x: 1.0000012, y: 0.9999989, z: 0.9999994}
+    - name: "\u8DB3\u9996.L_end"
+      parentName: "\u8DB3\u9996.L"
+      position: {x: -0, y: 0.18857354, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u8DB3.R"
+      parentName: "\u4E0A\u534A\u8EAB"
+      position: {x: 0.13862981, y: -0.012845382, z: -0.0038798975}
+      rotation: {x: 0.047050647, y: 0.0808374, z: 0.9947284, w: -0.042036317}
+      scale: {x: 1.0000031, y: 1.0000004, z: 1.000012}
+    - name: "\u3072\u3056.R"
+      parentName: "\u8DB3.R"
+      position: {x: 0.000000018044375, y: 0.15515688, z: 0.0000000037252903}
+      rotation: {x: 0.06822572, y: 0.98186314, z: -0.17676304, w: -0.0066999733}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1.0000002}
+    - name: "\u8DB3\u9996.R"
+      parentName: "\u3072\u3056.R"
+      position: {x: 0.000000025262125, y: 0.1428897, z: 0.0000000018626451}
+      rotation: {x: -0.61731315, y: 0.05194188, z: -0.01282232, w: 0.78489625}
+      scale: {x: 1.0000015, y: 0.9999987, z: 0.99999934}
+    - name: "\u8DB3\u9996.R_end"
+      parentName: "\u8DB3\u9996.R"
+      position: {x: -0, y: 0.18857354, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u8DB3\u9996IK.L"
+      parentName: Saite
+      position: {x: -0.14191431, y: 0.011276117, z: 0.11340845}
+      rotation: {x: 0.97371346, y: -0.0051724855, z: -0.0040369285, w: -0.22768201}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999993}
+    - name: "\u8DB3\u9996IK.L_end"
+      parentName: "\u8DB3\u9996IK.L"
+      position: {x: -0, y: 0.1898107, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u8DB3\u9996IK.R"
+      parentName: Saite
+      position: {x: 0.14191431, y: 0.011276117, z: 0.11340845}
+      rotation: {x: 0.97371346, y: 0.0051724855, z: 0.0040369285, w: -0.22768201}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999993}
+    - name: "\u8DB3\u9996IK.R_end"
+      parentName: "\u8DB3\u9996IK.R"
+      position: {x: -0, y: 0.1898107, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u3072\u3056IK.L"
+      parentName: Saite
+      position: {x: -0.17029154, y: -0.32995018, z: 0.26863986}
+      rotation: {x: 0, y: 0, z: 1, w: 0.00000004371139}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u3072\u3056IK.L_end"
+      parentName: "\u3072\u3056IK.L"
+      position: {x: -0, y: 0.05771038, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u3072\u3056IK.R"
+      parentName: Saite
+      position: {x: 0.17029154, y: -0.32995018, z: 0.26863986}
+      rotation: {x: 0, y: 0, z: 1, w: 0.00000004371139}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u3072\u3056IK.R_end"
+      parentName: "\u3072\u3056IK.R"
+      position: {x: -0, y: 0.05771038, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u3072\u3058IK.L"
+      parentName: Saite
+      position: {x: -0.24606493, y: 0.14247021, z: 0.6491709}
+      rotation: {x: -0.01593375, y: -0.7071876, z: -0.0036151214, w: 0.7068372}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: "\u3072\u3058IK.L_end"
+      parentName: "\u3072\u3058IK.L"
+      position: {x: -0, y: 0.070558995, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u624B\u9996IK.L"
+      parentName: Saite
+      position: {x: -0.3229135, y: 0.0030865893, z: 0.48560837}
+      rotation: {x: -0.15870386, y: 0.6912777, z: -0.6866354, w: -0.15962523}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: "\u624B\u9996IK.L_end"
+      parentName: "\u624B\u9996IK.L"
+      position: {x: -0, y: 0.15912187, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u3072\u3058IK.R"
+      parentName: Saite
+      position: {x: 0.24606493, y: 0.14247021, z: 0.6491709}
+      rotation: {x: -0.01593375, y: 0.7071876, z: 0.0036151214, w: 0.7068372}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: "\u3072\u3058IK.R_end"
+      parentName: "\u3072\u3058IK.R"
+      position: {x: -0, y: 0.070558995, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u624B\u9996IK.R"
+      parentName: Saite
+      position: {x: 0.3229135, y: 0.0030865893, z: 0.48560837}
+      rotation: {x: 0.15870386, y: 0.6912777, z: -0.6866354, w: 0.15962523}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: "\u624B\u9996IK.R_end"
+      parentName: "\u624B\u9996IK.R"
+      position: {x: -0, y: 0.15912187, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "D02\u540D\u724C.004"
+      parentName: Saite_Q(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 2
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
