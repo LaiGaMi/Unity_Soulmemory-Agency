@@ -29,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Rein_hair_texture.002
     second: {fileID: 2100000, guid: 8900c4602addebc4cb7e8b65aa998994, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ban
+    second: {fileID: 2100000, guid: 4a4c95db4eddbdc4daedfdf943c01986, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -47,7 +52,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -104,378 +109,8 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human:
-    - boneName: "\u4E0A\u534A\u8EAB"
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u8DB3.L"
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u8DB3.R"
-      humanName: RightUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u3072\u3056.L"
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u3072\u3056.R"
-      humanName: RightLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u8DB3\u9996.L"
-      humanName: LeftFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u8DB3\u9996.R"
-      humanName: RightFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u4E0A\u534A\u8EAB2"
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u982D"
-      humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u8155.L"
-      humanName: LeftUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u8155.R"
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u3072\u3058.L"
-      humanName: LeftLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u3072\u3058.R"
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u624B\u9996.L"
-      humanName: LeftHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: "\u624B\u9996.R"
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    skeleton:
-    - name: Rein_Q(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "A02\u8EAB.002"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "A01\u982D.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "A03\u624B.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "A02\u8EAB.003"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "C05\u98FE\u54C1.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "D01\u5C3E\u5DF4.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "A04\u8033\u6735.003"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "B01\u700F\u6D77.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "B02\u5F8C\u9AEE.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "B05\u9AEE\u6BDB.004"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Rein
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u5168\u3066\u306E\u89AA"
-      parentName: Rein
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0.7071068, y: -0.00000008429372, z: -0.0000000842937, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u4E0A\u534A\u8EAB"
-      parentName: "\u5168\u3066\u306E\u89AA"
-      position: {x: 0.0000000023831195, y: 0.46674347, z: 0.00999558}
-      rotation: {x: 0.016594684, y: 0.0000002383857, z: -9.76119e-16, w: 0.9998623}
-      scale: {x: 1, y: 0.99999994, z: 1}
-    - name: "\u4E0A\u534A\u8EAB2"
-      parentName: "\u4E0A\u534A\u8EAB"
-      position: {x: 2.220446e-16, y: 0.24103446, z: 9.313226e-10}
-      rotation: {x: -0.04598241, y: 3.204192e-14, z: -0.000000010963058, w: 0.99894226}
-      scale: {x: 1, y: 0.99999994, z: 1}
-    - name: "\u982D"
-      parentName: "\u4E0A\u534A\u8EAB2"
-      position: {x: -6.284903e-10, y: 0.30031013, z: 0.0026360776}
-      rotation: {x: 0.043867864, y: 1.4198248e-14, z: 0.000000010458912, w: 0.9990373}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u982D_end"
-      parentName: "\u982D"
-      position: {x: -0, y: 1.0132397, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u8155.L"
-      parentName: "\u4E0A\u534A\u8EAB2"
-      position: {x: -0.21303263, y: 0.20991895, z: -0.0032604232}
-      rotation: {x: 0.029731944, y: -0.038448215, z: 0.8027723, w: 0.59430164}
-      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
-    - name: "\u3072\u3058.L"
-      parentName: "\u8155.L"
-      position: {x: -0.00000010583608, y: 0.19955705, z: -0.000000005355105}
-      rotation: {x: 0.003395607, y: -0.042218786, z: -0.11293633, w: 0.9926991}
-      scale: {x: 1, y: 0.9999998, z: 1.0000001}
-    - name: "\u624B\u9996.L"
-      parentName: "\u3072\u3058.L"
-      position: {x: -0.00000010681106, y: 0.17403269, z: -0.000000009778887}
-      rotation: {x: -0.021372011, y: 0.05740971, z: 0.004660633, w: 0.998111}
-      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999999}
-    - name: "\u624B\u9996.L_end"
-      parentName: "\u624B\u9996.L"
-      position: {x: -0, y: 0.19425981, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u8155.R"
-      parentName: "\u4E0A\u534A\u8EAB2"
-      position: {x: 0.21303263, y: 0.20991895, z: -0.0032603208}
-      rotation: {x: -0.02973209, y: -0.038447257, z: 0.8027724, w: -0.5943015}
-      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
-    - name: "\u3072\u3058.R"
-      parentName: "\u8155.R"
-      position: {x: 0.00000006749906, y: 0.19955699, z: 0.0000000023283064}
-      rotation: {x: 0.0033950005, y: 0.04221903, z: 0.11293639, w: 0.9926991}
-      scale: {x: 0.99999994, y: 0.99999976, z: 0.9999998}
-    - name: "\u624B\u9996.R"
-      parentName: "\u3072\u3058.R"
-      position: {x: 0.000000017811544, y: 0.17403276, z: 9.313226e-10}
-      rotation: {x: -0.021371154, y: -0.057409626, z: -0.0046605174, w: 0.99811107}
-      scale: {x: 1, y: 0.9999999, z: 0.99999994}
-    - name: "\u624B\u9996.R_end"
-      parentName: "\u624B\u9996.R"
-      position: {x: -0, y: 0.19425981, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u8DB3.R"
-      parentName: "\u4E0A\u534A\u8EAB"
-      position: {x: 0.18162665, y: -0.06789345, z: -0.012431191}
-      rotation: {x: 0.0049622688, y: 0.07731425, z: 0.9962577, w: -0.038319647}
-      scale: {x: 1.0000036, y: 1.0000007, z: 1.0000159}
-    - name: "\u3072\u3056.R"
-      parentName: "\u8DB3.R"
-      position: {x: 0.000000028303475, y: 0.18658194, z: -1.1641532e-10}
-      rotation: {x: 0.009050578, y: 0.98455256, z: -0.17399743, w: -0.017301941}
-      scale: {x: 1.0000004, y: 0.9999989, z: 1.0000005}
-    - name: "\u8DB3\u9996.R"
-      parentName: "\u3072\u3056.R"
-      position: {x: 0.0000000057916623, y: 0.17354012, z: 0.0000000024447218}
-      rotation: {x: -0.5750996, y: -0.022494527, z: 0.015141491, w: 0.8176339}
-      scale: {x: 1.0000002, y: 0.99999964, z: 1}
-    - name: "\u8DB3\u9996.R_end"
-      parentName: "\u8DB3\u9996.R"
-      position: {x: -0, y: 0.18245287, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u8DB3.L"
-      parentName: "\u4E0A\u534A\u8EAB"
-      position: {x: -0.18162665, y: -0.06789345, z: -0.012431277}
-      rotation: {x: -0.0049619223, y: 0.0773136, z: 0.9962578, w: 0.038319856}
-      scale: {x: 1.0000027, y: 1.0000004, z: 1.0000135}
-    - name: "\u3072\u3056.L"
-      parentName: "\u8DB3.L"
-      position: {x: -3.2014214e-10, y: 0.18658195, z: 0.000000004132744}
-      rotation: {x: -0.009050492, y: 0.9845526, z: -0.17399672, w: 0.017302157}
-      scale: {x: 1.0000004, y: 0.999999, z: 1.0000004}
-    - name: "\u8DB3\u9996.L"
-      parentName: "\u3072\u3056.L"
-      position: {x: -0.000000022526365, y: 0.17354017, z: -0.000000006170012}
-      rotation: {x: -0.5750995, y: 0.022495428, z: -0.015142023, w: 0.8176339}
-      scale: {x: 1.0000001, y: 0.9999996, z: 1.0000001}
-    - name: "\u8DB3\u9996.L_end"
-      parentName: "\u8DB3\u9996.L"
-      position: {x: -0, y: 0.18245287, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u8DB3\u9996IK.L"
-      parentName: Rein
-      position: {x: -0.20631017, y: 0.021463722, z: 0.11899013}
-      rotation: {x: 0.9591111, y: -0.006427628, z: -0.0039763683, w: -0.2829289}
-      scale: {x: 1, y: 1, z: 1.0000002}
-    - name: "\u8DB3\u9996IK.L_end"
-      parentName: "\u8DB3\u9996IK.L"
-      position: {x: -0, y: 0.18648018, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u8DB3\u9996IK.R"
-      parentName: Rein
-      position: {x: 0.20631017, y: 0.021463722, z: 0.11899013}
-      rotation: {x: 0.9591111, y: 0.006427628, z: 0.0039763683, w: -0.2829289}
-      scale: {x: 1, y: 1, z: 1.0000002}
-    - name: "\u8DB3\u9996IK.R_end"
-      parentName: "\u8DB3\u9996IK.R"
-      position: {x: -0, y: 0.18648018, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u3072\u3056IK.L"
-      parentName: Rein
-      position: {x: -0.19896726, y: -0.35253465, z: 0.29011136}
-      rotation: {x: 0, y: 0, z: 1, w: 0.00000004371139}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u3072\u3056IK.L_end"
-      parentName: "\u3072\u3056IK.L"
-      position: {x: -0, y: 0.06939891, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u3072\u3056IK.R"
-      parentName: Rein
-      position: {x: 0.19896726, y: -0.35253465, z: 0.29011136}
-      rotation: {x: 0, y: 0, z: 1, w: 0.00000004371139}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u3072\u3056IK.R_end"
-      parentName: "\u3072\u3056IK.R"
-      position: {x: -0, y: 0.06939891, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u3072\u3058IK.L"
-      parentName: Rein
-      position: {x: -0.31515318, y: 0.16854219, z: 0.8190575}
-      rotation: {x: -0.016100843, y: -0.7071778, z: -0.0027768498, w: 0.70684695}
-      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
-    - name: "\u3072\u3058IK.L_end"
-      parentName: "\u3072\u3058IK.L"
-      position: {x: -0, y: 0.07944996, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u624B\u9996IK.L"
-      parentName: Rein
-      position: {x: -0.39812204, y: -0.004393986, z: 0.66582924}
-      rotation: {x: -0.17516531, y: 0.68705726, z: -0.6828969, w: -0.17584452}
-      scale: {x: 1, y: 0.9999997, z: 0.99999994}
-    - name: "\u624B\u9996IK.L_end"
-      parentName: "\u624B\u9996IK.L"
-      position: {x: -0, y: 0.20186262, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u3072\u3058IK.R"
-      parentName: Rein
-      position: {x: 0.31515318, y: 0.16854219, z: 0.8190575}
-      rotation: {x: -0.016100843, y: 0.7071778, z: 0.0027768498, w: 0.70684695}
-      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
-    - name: "\u3072\u3058IK.R_end"
-      parentName: "\u3072\u3058IK.R"
-      position: {x: -0, y: 0.07944996, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "\u624B\u9996IK.R"
-      parentName: Rein
-      position: {x: 0.39812204, y: -0.004393986, z: 0.66582924}
-      rotation: {x: 0.17516531, y: 0.68705726, z: -0.6828969, w: 0.17584452}
-      scale: {x: 1, y: 0.9999997, z: 0.99999994}
-    - name: "\u624B\u9996IK.R_end"
-      parentName: "\u624B\u9996IK.R"
-      position: {x: -0, y: 0.20186262, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: "C04\u8774\u8776\u7D50.001"
-      parentName: Rein_Q(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 1, y: 1, z: 1}
+    human: []
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -486,13 +121,13 @@ ModelImporter:
     globalScale: 2
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

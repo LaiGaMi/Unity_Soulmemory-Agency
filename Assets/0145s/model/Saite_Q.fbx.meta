@@ -29,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Saite_hair_texture.002
     second: {fileID: 2100000, guid: 1ef59f17e7eb39d428f26b01b6e34386, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ban
+    second: {fileID: 2100000, guid: 4a4c95db4eddbdc4daedfdf943c01986, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
